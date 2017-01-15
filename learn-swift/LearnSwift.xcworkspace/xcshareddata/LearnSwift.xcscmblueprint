@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ECD349E1AE4F6154C57450528E342C45E770225A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ECD349E1AE4F6154C57450528E342C45E770225A" : 9223372036854775807,
+    "72828FB837D2C9EB03A6AF7193C43D8AF14EE315" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DBC1033E-4032-49C5-A81B-FDDDE504B98B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ECD349E1AE4F6154C57450528E342C45E770225A" : "E65g_materials\/",
+    "72828FB837D2C9EB03A6AF7193C43D8AF14EE315" : "..\/learn-swift"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LearnSwift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "learn-swift\/LearnSwift.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:rvsrvs\/learn-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72828FB837D2C9EB03A6AF7193C43D8AF14EE315"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:rvsrvs\/E65g_materials.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ECD349E1AE4F6154C57450528E342C45E770225A"
+    }
+  ]
+}
