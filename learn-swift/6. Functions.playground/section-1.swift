@@ -22,8 +22,7 @@ import Foundation
 //
 // Note that each parameter has a local name (for use within the function) and a standard type
 // annotation. The return value's type is at the end of the function, following the ->.
-func sayHello(personName: String) -> String
-{
+func sayHello(personName: String) -> String {
 	return "Hello, \(personName)"
 }
 
@@ -31,43 +30,37 @@ func sayHello(personName: String) -> String
 sayHello(personName: "Peter Parker")
 
 // Multiple input parameters are separated by a comma
-func halfOpenRangeLength(start: Int, end: Int) -> Int
-{
+func halfOpenRangeLength(start: Int, end: Int) -> Int {
 	return end - start
 }
 
 // A function with no parameters simply has an empty set of parenthesis following the function
 // name:
-func sayHelloWorld() -> String
-{
+func sayHelloWorld() -> String {
 	return "Hello, world"
 }
 
 // A funciton with no return value can be expressed in two different ways. The first is to replace
 // the return type with a set of empty parenthesis, which can be thought of as an empty Tuple.
-func sayGoodbye(name: String) -> ()
-{
+func sayGoodbye(name: String) -> () {
 	"Goodbye, \(name)"
 }
 
 // We can also remove the return type (and the -> delimiter) alltogether:
-func sayGoodbyeToMyLittleFriend(name: String)
-{
+func sayGoodbyeToMyLittleFriend(name: String) {
 	"Goodbye, \(name)"
 }
 
 // Functions can return Tuples, which enable them to return multiple values.
 //
 // The following function simply returns two hard-coded strings.
-func getApplicationNameAndVersion() -> (String, String)
-{
+func getApplicationNameAndVersion() -> (String, String) {
 	return ("Modaferator", "v1.0")
 }
 
 // Since the return value is a Tuple, we can use the Tuple's naming feature to name the values
 // being returned:
-func getApplicationInfo() -> (name: String, version: String)
-{
+func getApplicationInfo() -> (name: String, version: String) {
 	return ("Modaferator", "v1.0")
 }
 var appInfo = getApplicationInfo()
@@ -79,8 +72,7 @@ appInfo.version
 //
 // We can use Objective-C-like external parameter names so the caller must name the external
 // parameters when they call the function. The extenal name appears before the local name.
-func addSeventeen(toNumber value: Int) -> Int
-{
+func addSeventeen(toNumber value: Int) -> Int {
 	return value + 17
 }
 addSeventeen(toNumber: 42)
@@ -90,8 +82,7 @@ addSeventeen(toNumber: 42)
 //
 // The following declaration creates an internal parameter named "action" as well as an external
 // parameter named "action":
-func kangaroosCan(action: String) -> String
-{
+func kangaroosCan(action: String) -> String {
 	return "A Kangaroo can \(action)"
 }
 
@@ -105,8 +96,7 @@ kangaroosCan(action: "carry children in their pouches")
 // In the addMul routine, we'll add two numbers and multiply the result by an optional multiplier
 // value. We will default the multiplier to 1 so that if the parameter is not specified, the
 // multiplication won't affect the result.
-func addMul(firstAdder: Int, secondAdder: Int, multiplier: Int = 1) -> Int
-{
+func addMul(firstAdder: Int, secondAdder: Int, multiplier: Int = 1) -> Int {
 	return (firstAdder + secondAdder) * multiplier
 }
 
@@ -126,8 +116,7 @@ addMul(firstAdder: 1, secondAdder: 2, multiplier: 9)
 
 // We can opt out of the automatic external name for default parameter values by specify an
 // external name of "_" like so:
-func anotherAddMul(firstAdder: Int, secondAdder: Int, _ multiplier: Int = 1) -> Int
-{
+func anotherAddMul(firstAdder: Int, secondAdder: Int, _ multiplier: Int = 1) -> Int {
 	return (firstAdder + secondAdder) * multiplier
 }
 
@@ -145,8 +134,7 @@ anotherAddMul(firstAdder: 1, secondAdder: 2, 9)
 // Variadic parameters appear within the receiving function as an array of the given type.
 //
 // A function may only have at most one variadic and it must appear as the last parameter.
-func arithmeticMean(numbers: Double...) -> Double
-{
+func arithmeticMean(numbers: Double...) -> Double {
 	var total = 0.0
 	
 	// The variadic, numbers, looks like an array to the internal function so we can just loop
@@ -170,8 +158,7 @@ arithmeticMean(numbers: 1, 2, 3, 4, 5, 6)
 
 // If we want to use variadic parameters and default parameter values, we can do so by making sure
 // that the default parameters come before the variadic, at the end of the parameter list:
-func anotherArithmeticMean(initialTotal: Double = 0, numbers: Double...) -> Double
-{
+func anotherArithmeticMean(initialTotal: Double = 0, numbers: Double...) -> Double {
 	var total = initialTotal
 	for number in numbers
 	{
@@ -196,8 +183,7 @@ anotherArithmeticMean(initialTotal: 1, numbers: 2, 3, 4, 5, 6)
 
 // Variadic parameters with external parameter names only apply their external name to the first
 // variadic parameter specified in the function call (if present.)
-func yetAnotherArithmeticMean(initialTotal: Double = 0, values numbers: Double...) -> Double
-{
+func yetAnotherArithmeticMean(initialTotal: Double = 0, values numbers: Double...) -> Double {
 	var total = initialTotal
 	for number in numbers
 	{
@@ -220,8 +206,7 @@ yetAnotherArithmeticMean(initialTotal: 1, values: 2, 3, 4, 5, 6)
 // Constant and variable parameters
 //
 // All function parameters are constant by default. To make them variable, add the var introducer:
-func padString(str: String, pad: Character, count: Int) -> String
-{
+func padString(str: String, pad: Character, count: Int) -> String {
   var str = str
   str = String(repeating: String(pad), count: count) + str
   
@@ -244,8 +229,7 @@ paddedString
 // Note that inout parameters cannot be variadic or have default parameter values.
 //
 // We'll write a standard swap function to exercise this:
-func swap(a: inout Int, b: inout Int)
-{
+func swap(a: inout Int, b: inout Int) {
 	let tmp = a
 	a = b
 	b = tmp
@@ -278,8 +262,7 @@ func add(a: Int, b: Int) -> Int {return a+b}
 func mul(a: Int, b: Int) -> Int {return a*b}
 
 // A function that has no parameters or return value would have the type: () -> ()
-func nop() -> ()
-{
+func nop() -> () {
 	return
 }
 
@@ -287,8 +270,7 @@ func nop() -> ()
 //
 // It is written in a shorter form, eliminating the return type entirely, but this syntactic
 // simplification doesn't alter the way that the function's type is notated:
-func doNothing()
-{
+func doNothing() {
 	return
 }
 
@@ -312,8 +294,7 @@ doAddMul(4, 2, 55)
 //
 // Here, our first parameter named 'doMulFunc' has the type "(Int, Int) -> Int" followed by two
 // parameters, 'a' and 'b' that are used as parameters to the 'doMulFunc' function:
-func doDoMul(doMulFunc: (Int, Int) -> Int, a: Int, b: Int) -> Int
-{
+func doDoMul(doMulFunc: (Int, Int) -> Int, a: Int, b: Int) -> Int {
 	return doMulFunc(a, b)
 }
 
@@ -326,8 +307,7 @@ doDoMul(doMulFunc: doMul, a: 5, b: 5)
 // The syntax looks a little wird because of the two sets of arrows. To read this, understand that
 // the first arrow specifies the return type, and the second arrow is simply part of the function
 // type being returned:
-func getDoMul() -> (Int, Int) -> Int
-{
+func getDoMul() -> (Int, Int) -> Int {
 	return doMul
 }
 let newDoMul = getDoMul()
@@ -340,8 +320,7 @@ getDoMul()(5, 5)
 // includes: -> ()
 //
 // Here, we'll see this in action by returning a function that doesn't return a value:
-func getNop() -> () -> ()
-{
+func getNop() -> () -> () {
 	return nop
 }
 
@@ -349,8 +328,7 @@ func getNop() -> () -> ()
 getNop()()
 
 // We can nest functions inside of other functions:
-func getFive() -> Int
-{
+func getFive() -> Int {
 	func returnFive() -> Int
 	{
 		return 5
@@ -364,10 +342,8 @@ func getFive() -> Int
 getFive()
 
 // You can return nested functions, too:
-func getReturnFive() -> () -> Int
-{
-	func returnFive() -> Int
-	{
+func getReturnFive() -> () -> Int {
+	func returnFive() -> Int {
 		return 5
 	}
 	return returnFive

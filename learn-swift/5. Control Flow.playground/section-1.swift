@@ -13,8 +13,7 @@
 // We can loop through ranges using the closed-range operator ("...").
 //
 // In the loop below, 'index' is a constant that is automatically declared.
-for index in 1...5
-{
+for index in 1...5 {
 	"This will print 5 times"
 	
 	// Being a constant, the following line won't compile:
@@ -30,8 +29,7 @@ for index in 1...5
 // We can loop through ranges using the half-closed range operator ("..<")
 //
 // We can also reuse the name 'index' because of the scoping noted previously.
-for index in 1 ..< 5
-{
+for index in 1 ..< 5 {
 	"This will print 4 times"
 }
 
@@ -45,8 +43,7 @@ for index in 1 ..< 5
 // In practice, I find that the loop constant overrides any local variable/constant and maintains
 // its scope to the loop and does not alter the locally defined value:
 var indx = 3999
-for indx in 1...5
-{
+for indx in 1...5 {
 	indx // This ranges from 1 to 5, inclusive
 
 	// 'indx' is still acting like a constant, so this line won't compile:
@@ -58,29 +55,25 @@ for indx in 1...5
 indx
 
 // We can use an underscore if you don't need access to the loop constant:
-for _ in 1...10
-{
+for _ in 1...10 {
 	print("do something")
 }
 
 // We can iterate over arrays
 let names = ["Anna", "Alex", "Brian", "Jack"]
-for name in names
-{
+for name in names {
 	name
 }
 
 // We can iterate over a Dictionary's key/value pairs
 let numberOfLegs = ["Spider":8, "Ant":6, "Cat":4]
-for (animalName, legs) in numberOfLegs
-{
+for (animalName, legs) in numberOfLegs {
 	animalName
 	legs
 }
 
 // We can iterate over characters in a String
-for character in "Hello".characters
-{
+for character in "Hello".characters {
 	character
 }
 
@@ -88,8 +81,7 @@ for character in "Hello".characters
 //
 // Note that the loop value is a variable, not a constant. In fact, they cannot be constant
 // because of the increment statement (++index)
-for index in 0 ..< 3
-{
+for index in 0 ..< 3 {
 	index
 }
 
@@ -112,16 +104,14 @@ index // Index holds 3 after running through the loop
 //
 // While loops resemble other C-like languages. They perform the condition before each iteration
 // through the loop:
-while index > 0
-{
+while index > 0 {
 	index -= 1
 }
 
 // Do-While loops also resemble their C-like language counterparts. They perform the condition
 // after each iteration through the loop. As a result, they always execute the code inside the
 // loop at least once:
-repeat
-{
+repeat {
 	index += 1
 } while (index < 3)
 
@@ -130,16 +120,13 @@ repeat
 //
 // The if statement is very similar to C-like languages, except that the parenthesis are optional.
 // You can also chain multiple conditions with 'else' and 'else if' statements:
-if (index > 0)
-{
+if (index > 0) {
 	"Index is positive"
 }
-else if index == 0
-{
+else if index == 0 {
 	"index is zero"
 }
-else
-{
+else {
 	"index is negative"
 }
 
@@ -158,12 +145,13 @@ else
 // There are many more differences, but let's start with a simple switch statement to get our feet
 // wet:
 let someCharacter: Character = "e"
-switch someCharacter
-{
+switch someCharacter {
 	case "a", "e", "i", "o", "u":
 		"a vowel"
 	
-	case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "u", "z":
+	case "b", "c", "d", "f", "g", "h", "j",
+	     "k", "l", "m", "n", "p", "q", "r",
+	     "s", "t", "v", "w", "x", "u", "z":
 		"a consonant"
 
 	// Necessary because switch statements must be exhaustive in order to capture all Characters
@@ -188,8 +176,7 @@ switch someCharacter
 
 // We can perform range matching for cases:
 let count = 3_000_000_000_000
-switch count
-{
+switch count {
 	case 0:
 		"no"
 	case 1...3:
@@ -212,8 +199,7 @@ switch count
 // against partial Tuple values by using an "_" to ignore matches against a specific value within
 // the Tuple.
 let somePoint = (1,1)
-switch somePoint
-{
+switch somePoint {
 	case (0,0):
 		"origin"
 	
@@ -237,8 +223,7 @@ switch somePoint
 // Value bindings in switch statements
 //
 var anotherPoint = (2, 8)
-switch anotherPoint
-{
+switch anotherPoint {
 	// Bind 'x' to the first value (matching any x) of the tuple and match on y=0
 	case (let x, 0):
 		"On the x axis with an x value of \(x)"
@@ -259,8 +244,7 @@ switch anotherPoint
 // We can also mix let/var for case statements. The following code block is the same as the
 // previous except that the final case statement, which mixes variable and constants for the x and
 // y components of the Tuple.
-switch anotherPoint
-{
+switch anotherPoint {
 	case (let x, 0):
 		"On the x axis with an x value of \(x)"
 	
@@ -275,8 +259,7 @@ switch anotherPoint
 // Where clauses allow us to perform more detailed conditions on case conditions. The where clauses
 // work on the values declared on the case line:
 let yetAnotherPoint = (1, -1)
-switch yetAnotherPoint
-{
+switch yetAnotherPoint {
 	case let (x, y) where x == y:
 		"On the line of x == y"
 	
@@ -297,8 +280,7 @@ switch yetAnotherPoint
 // still use them to early-out of the current case without continuing work. The first statement
 // after the 'break' will be the next statement following the entire switch construct.
 let someValue = 9000
-switch someValue
-{
+switch someValue {
 	case let x where (x & 1) == 1:
 		if someValue < 100
 		{
@@ -321,8 +303,7 @@ switch someValue
 
 // Since each case must have a statement and since we must have an exhaustive switch, we can use
 // the break statement to effectively nullify the use of a case:
-switch someValue
-{
+switch someValue {
 	case Int.min...100:
 		"Small number"
 	
@@ -340,8 +321,7 @@ switch someValue
 // specifically express our intention to fall through using the 'fallthrough' keyword
 let integerToDescribe = 5
 var integerDescription = "\(integerToDescribe) is"
-switch integerToDescribe
-{
+switch integerToDescribe {
 	case 2, 3, 5, 7, 11, 13, 17, 19:
 		integerDescription += " a prime number, and also"
 		fallthrough
@@ -357,8 +337,7 @@ switch integerToDescribe
 //
 // The following will print each name until it reaches the letter 'a' then skip to the next name
 var result = ""
-nameLoop: for name in names
-{
+nameLoop: for name in names {
 	characterLoop: for character in name.characters
 	{
 		theSwitch: switch character
@@ -376,8 +355,7 @@ result
 
 // Similarly, this prints all names without the letter 'a' in them:
 result = ""
-nameLoop: for name in names
-{
+nameLoop: for name in names {
 	characterLoop: for character in name.characters
 	{
 		theSwitch: switch character
@@ -396,8 +374,7 @@ result
 // Similarly, this prints all names until the letter 'x' is found, then aborts all processing by
 // breaking out of the outer loop:
 result = ""
-nameLoop: for name in names
-{
+nameLoop: for name in names {
 	characterLoop: for character in name.characters
 	{
 		theSwitch: switch character
