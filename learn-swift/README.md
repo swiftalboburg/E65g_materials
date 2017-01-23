@@ -1,6 +1,8 @@
 learn-swift
 ===========
 
+Originally by Paul Nettle: https://github.com/nettlep/learn-swift
+
 Learn Apple's Swift programming language interactively through these playgrounds.
 
 ###Target Audience
@@ -41,4 +43,4 @@ Learn Apple's Swift programming language interactively through these playgrounds
   
   Most  playgrounds updated to Swift 3 by Christopher Bell.
 
-  Sections 24 and 25 by Van Simmons
+  Sections 24, 25, 26 by Van Simmons
