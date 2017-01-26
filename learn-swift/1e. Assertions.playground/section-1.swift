@@ -15,4 +15,5 @@ assert(age >= 0, "A person's age cannot be negative")
 // You can assert without the message
 assert(age >= 0)
 
+// you can also exit the app by causing fatalerror
 // fatalError("we died")

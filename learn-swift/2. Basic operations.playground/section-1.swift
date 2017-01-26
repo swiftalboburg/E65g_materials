@@ -29,7 +29,8 @@ y
 // (%) which is not to be confused with modulo. They work differently because of the way remainders
 // are calculated for negative numbers and can be used with floating point values.
 var c = a / b // Floatng point result
-//var d = a % b // Floating point remainder *** % is no longer supported for modulus in Swift 3 -> use truncatingRemainder ***
+//var d = a % b // Floating point remainder *** % is no longer supported for modulus in Swift 3 
+                // -> use truncatingRemainder ***
 var d = a.truncatingRemainder(dividingBy: b)
 
 // ------------------------------------------------------------------------------------------------
@@ -38,16 +39,14 @@ var d = a.truncatingRemainder(dividingBy: b)
 // The range operator with two dots means up to but NOT including the final value.
 //
 // This is called the "Half-Closed Range Operator"
-for i in 1 ..< 10
-{
+for i in 1 ..< 10 {
 	i // prints 1 through 9
 }
 
 // The range operator with three dots is inclusive with last value like
 //
 // This is called the "Closed Range Operator"
-for i in 1 ... 10
-{
+for i in 1 ... 10 {
 	i // prints 1 through 10
 }
 
@@ -105,7 +104,6 @@ c1 === c1
 // Logical operators
 //
 // Comparisons use the logical operators with AND, OR and NOT
-if (true && false) || !(false && true)
-{
+if (true && false) || !(false && true) {
 	"true"
 }

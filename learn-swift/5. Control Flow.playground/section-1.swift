@@ -99,6 +99,34 @@ for index in 0 ..< 3
 }
 index // Index holds 3 after running through the loop
 
+// Note the type of the range
+let range = 1 ..< 10
+type(of: range)
+let rangeIterator = range.makeIterator()
+type(of: rangeIterator)
+
+for i in rangeIterator {
+    i
+}
+
+let array = [1, 2, 3]
+type(of: array)
+let arrayIterator = array.makeIterator()
+type(of: arrayIterator)
+for i in arrayIterator {
+    i
+}
+
+struct IteratingStruct: Sequence {
+    func makeIterator() -> IndexingIterator<CountableRange<Int>> {
+        return (0 ..< 10).makeIterator()
+    }
+}
+
+for i in IteratingStruct() {
+    i
+}
+
 // ------------------------------------------------------------------------------------------------
 // While loops
 //
@@ -282,16 +310,14 @@ switch yetAnotherPoint {
 let someValue = 9000
 switch someValue {
 	case let x where (x & 1) == 1:
-		if someValue < 100
-		{
+		if someValue < 100 {
 			"Odd number less than 100"
 			break
 		}
 		"Odd number greater or equal to 100"
 		
 	case let x where (x & 1) == 0:
-		if someValue < 100
-		{
+		if someValue < 100 {
 			"Even number less than 100"
 			break
 		}
@@ -356,10 +382,8 @@ result
 // Similarly, this prints all names without the letter 'a' in them:
 result = ""
 nameLoop: for name in names {
-	characterLoop: for character in name.characters
-	{
-		theSwitch: switch character
-		{
+	characterLoop: for character in name.characters {
+		theSwitch: switch character {
 			case "a":
 				// Continue directly to the character loop, bypassing this character in this name
 				continue characterLoop
@@ -375,10 +399,8 @@ result
 // breaking out of the outer loop:
 result = ""
 nameLoop: for name in names {
-	characterLoop: for character in name.characters
-	{
-		theSwitch: switch character
-		{
+	characterLoop: for character in name.characters {
+		theSwitch: switch character {
 			case "x":
 				// Break completely out of the outer name loop
 				break nameLoop

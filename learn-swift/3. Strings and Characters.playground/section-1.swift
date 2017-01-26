@@ -27,15 +27,13 @@ var emptyString = ""
 var anotherEmptyString = String()
 
 // Use 'isEmpty' to check for empty String
-if emptyString.isEmpty
-{
+if emptyString.isEmpty {
 	"Yep, it's empty"
 }
 
 // Strings are VALUE TYPES, but they're referenced for performance so they are only copied on
 // modification.
-func somefunc(a: String)
-{
+func somefunc(a: String) {
 	var b = a
     b
 	b = "Changed!"
@@ -46,8 +44,7 @@ somefunc(a: originalString)
 originalString // not modified
 
 // You can iterate over a string like this:
-for character in originalString.characters
-{
+for character in originalString.characters {
 	character
 }
 
