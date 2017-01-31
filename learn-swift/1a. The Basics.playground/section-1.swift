@@ -53,6 +53,8 @@ var SomeDouble: Double = 4
 //
 // Here are some oddly named, but perfectly valid, constants:
 let π = 3.14159
+let van = 13
+
 let 你好 = "你好世界"
 let 🐶🐮 = "dogcow"
 
