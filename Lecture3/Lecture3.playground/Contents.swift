@@ -42,6 +42,7 @@ d["d"] = 37
 d
 d.keys.sorted()
 d.values.sorted()
+let keyArray = Array(d.keys)
 
 for (k,v) in d {
     print ("\(k):\(v)")

@@ -1,0 +1,55 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red242\green242\blue242;}
+{\*\expandedcolortbl;;\csgenericrgb\c14902\c14902\c14902;\csgenericrgb\c94902\c94902\c94902;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+Consider the following two problems:\
+\
+IN A PLAYGROUND:\
+a) implement the following function:\
+
+\b func isLeap(year:Int) ->\'a0 Bool
+\b0 \
+which implements the correct leap year handling rules as follows:\
+0) returns false UNLESS\
+1) year is divisible by 4 which returns true UNLESS\
+2) year is divisible by 100 which returns false UNLESS\
+3) year is divisible by 400 which returns true\
+This should be implemented in precisely 1 line of code with no calls to other functions.\
+b) Implement the following function:\
+
+\b func julianDate(year: Int, month: Int, day: Int) -> Int
+\b0 \
+which counts the number of days from January 1, 1900. \'a0Jan 1, 1900 should return 1. You MAY\'a0call isLeap inside this function but you may not call any other function which is not in the Swift standard library. \'a0You MAY NOT\'a0use if statements or for loops and the function may take no more than 3 lines. \'a0 You MAY declare and intialize up to two variables outside of either function.\
+c) Append the following lines to your playground:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 julianDate(1960, month:\'a0 9, day: 28)\
+julianDate(1900, month:\'a0 1, day: 1)\
+julianDate(1900, month: 12, day: 31)\
+julianDate(1901, month: 1, day: 1)\
+julianDate(1901, month: 1, day: 1) - julianDate(1900, month: 1, day: 1)\
+julianDate(2001, month: 1, day: 1) - julianDate(2000, month: 1, day: 1)\
+\
+isLeap(1960)\
+isLeap(1900)\
+isLeap(2000)\
+\'a0\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 Grading will be as follows:
+\f1\fs26 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb1 a) all calls to julianDate and isLeap MUST return correct values, otherwise zero points\
+b) use of "if \{\}" or "for \{\}" will result in zero points\
+c) use of ";" will result in zero points\
+d) more than one line in isLeap will result in zero points\
+e) more than three lines in julianDate will result in zero points\
+f) unreasonably long lines which don't seem to belong together will result in zero points\
+g) The grader having to look at the code for more than 30 seconds to determine if you have met the requirements will result in zero points.\
+h) for clarity you are allowed to use the the ternary operator, any data structure which is equipped with map/reduce/sort/filter, the map/reduce/sort/filter methods and any arithmetic or boolean operator. \'a0Nothing else is required. Anything else is extraneous.}

@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB42E02A1E4ACA910098C1D6 /* ReadabilityChallenge2.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB42E0291E4ACA910098C1D6 /* ReadabilityChallenge2.rtf */; };
+		FB42E02D1E4ACC200098C1D6 /* Lecture 3 Topics.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB42E02C1E4ACC200098C1D6 /* Lecture 3 Topics.rtf */; };
 		FB99C0EC1E4953B0006F23D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99C0EB1E4953B0006F23D0 /* AppDelegate.swift */; };
 		FB99C0EE1E4953B0006F23D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99C0ED1E4953B0006F23D0 /* ViewController.swift */; };
 		FB99C0F11E4953B0006F23D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB99C0EF1E4953B0006F23D0 /* Main.storyboard */; };
 		FB99C0F31E4953B0006F23D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB99C0F21E4953B0006F23D0 /* Assets.xcassets */; };
 		FB99C0F61E4953B0006F23D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB99C0F41E4953B0006F23D0 /* LaunchScreen.storyboard */; };
+		FB99C0FF1E4A44DE006F23D0 /* ReadabilityChallenge1.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB99C0FE1E4A44DE006F23D0 /* ReadabilityChallenge1.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB42E0291E4ACA910098C1D6 /* ReadabilityChallenge2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = ReadabilityChallenge2.rtf; sourceTree = "<group>"; };
+		FB42E02B1E4ACB5D0098C1D6 /* ReadabilityChallenge2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ReadabilityChallenge2.playground; sourceTree = "<group>"; };
+		FB42E02C1E4ACC200098C1D6 /* Lecture 3 Topics.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Lecture 3 Topics.rtf"; sourceTree = "<group>"; };
 		FB99C0E81E4953B0006F23D0 /* Lecture3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lecture3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB99C0EB1E4953B0006F23D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB99C0ED1E4953B0006F23D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +29,8 @@
 		FB99C0F51E4953B0006F23D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB99C0F71E4953B0006F23D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB99C0FD1E4953E8006F23D0 /* Lecture3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Lecture3.playground; sourceTree = "<group>"; };
+		FB99C0FE1E4A44DE006F23D0 /* ReadabilityChallenge1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = ReadabilityChallenge1.rtf; sourceTree = "<group>"; };
+		FB99C1001E4A4581006F23D0 /* ReadabilityChallenge1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ReadabilityChallenge1.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +47,12 @@
 		FB99C0DF1E4953B0006F23D0 = {
 			isa = PBXGroup;
 			children = (
+				FB42E02C1E4ACC200098C1D6 /* Lecture 3 Topics.rtf */,
 				FB99C0FD1E4953E8006F23D0 /* Lecture3.playground */,
+				FB99C0FE1E4A44DE006F23D0 /* ReadabilityChallenge1.rtf */,
+				FB99C1001E4A4581006F23D0 /* ReadabilityChallenge1.playground */,
+				FB42E0291E4ACA910098C1D6 /* ReadabilityChallenge2.rtf */,
+				FB42E02B1E4ACB5D0098C1D6 /* ReadabilityChallenge2.playground */,
 				FB99C0EA1E4953B0006F23D0 /* Lecture3 */,
 				FB99C0E91E4953B0006F23D0 /* Products */,
 			);
@@ -128,7 +141,10 @@
 			files = (
 				FB99C0F61E4953B0006F23D0 /* LaunchScreen.storyboard in Resources */,
 				FB99C0F31E4953B0006F23D0 /* Assets.xcassets in Resources */,
+				FB42E02A1E4ACA910098C1D6 /* ReadabilityChallenge2.rtf in Resources */,
 				FB99C0F11E4953B0006F23D0 /* Main.storyboard in Resources */,
+				FB99C0FF1E4A44DE006F23D0 /* ReadabilityChallenge1.rtf in Resources */,
+				FB42E02D1E4ACC200098C1D6 /* Lecture 3 Topics.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +320,7 @@
 				FB99C0FC1E4953B0006F23D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
