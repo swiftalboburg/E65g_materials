@@ -1,4 +1,3 @@
-//: Playground - noun: a place where people can play
 
 typealias Position = (row: Int, col: Int)
 

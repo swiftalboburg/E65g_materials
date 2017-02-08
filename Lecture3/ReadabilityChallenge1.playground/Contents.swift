@@ -3,13 +3,14 @@ func isLeap(_ year:Int) ->  Bool {
     return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
 }
 
-let months     = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+let nonLeapMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 let leapMonths = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 func julianDate(year: Int, month: Int, day: Int) -> Int {
-    return (1900 ..< year ).reduce(0) { isLeap($1)   ? $0 + 366            : $0 + 365        }
-        + (0 ..< month - 1).reduce(0) { isLeap(year) ? $0 + leapMonths[$1] : $0 + months[$1] }
-        + day
+    let (months, daysPerYear) = isLeap(year) ? (leapMonths, 366) : (nonLeapMonths, 365)
+    let yearDays = (1900 ..< year).reduce(0) { (days, _) in return days + daysPerYear }
+    let monthDays = (0 ..< month - 1).reduce(0) { return $0 + months[$1] }
+    return yearDays + monthDays + day
 }
 
 isLeap(1900)
