@@ -39,45 +39,47 @@ isLeap(2000)
 //Challenge 2
 
 typealias Position = (row: Int, col: Int)
+let zipped = zip( [Int](repeating: 0, count: 5), 0 ..< 5 )
+for z in zipped {
+    print("\(z)")
+}
 
 func positions(rows: Int, cols: Int) -> [Position] {
     return (0 ..< rows)
         .map { row in zip( [Int](repeating: row, count: cols), 0 ..< cols ) }
         .flatMap { $0 }
 }
-
 var gridPositions = positions(rows: 5, cols: 5)
-print ("\(gridPositions)")
 
 
 
 // Lazy challenge 2
-
-let closurePositions = { (rows: Int, cols: Int) in
+let positionsClosure = { (rows: Int, cols: Int) in
     return (0 ..< rows)
         .map { row in zip( [Int](repeating: row, count: cols), 0 ..< cols ) }
         .flatMap { $0 }
 }
-print("\(type(of:closurePositions))")
+print("\(type(of:positionsClosure))")
 
-let lazyPositions = { (rows: Int, cols: Int) in
+let lazyPositionsClosure = { (rows: Int, cols: Int) in
     return (0 ..< rows)
         .lazy
         .map { row in zip( [Int](repeating: row, count: cols), 0 ..< cols ) }
         .flatMap { $0 }
 }
+print("\(type(of:lazyPositionsClosure))")
 
-let lazyGridPositions = lazyPositions(1000,1000)
-print("\(type(of:lazyGridPositions))")
+let lazyGridPositions = lazyPositionsClosure(10,10)
+print (lazyGridPositions)
 
 let iter = lazyGridPositions.makeIterator()
 print("\(type(of:iter))")
 
 for pos in lazyGridPositions {
-    print("\(pos)")
     break
 }
-let all = Array(lazyGridPositions)
+//let all = Array(lazyGridPositions)
+//print ("\(all.count)")
 
 
 
