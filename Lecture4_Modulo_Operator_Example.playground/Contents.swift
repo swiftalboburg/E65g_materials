@@ -1,6 +1,6 @@
 /*: 
  For wrap around rules in Homework Assignment 2
- Apply the modulus operator to any integer
+ Apply the modulo operator to any integer
  For an example lets pick 5 as our modulus.
  (this would be equivalent to using a 5x5 grid
  in Conway's GoL)
@@ -9,7 +9,7 @@
 8 % 5
 13 % 5
 /*:
- Note how all of those expressions equal -2
+ Note how all of those expressions equal 3
 */
 
 /*:
@@ -27,18 +27,18 @@
 (-12 % 5) + 5
 
 /*: Again note that all 3 are equal to 3.  In other words, 
- if there are 5 cells in our row or column, starting at 0
- and moving 2 steps to the left puts us back at 3.
+ if there are 5 cells in our row or column, then under the wrap around
+ rules, starting at 0 and moving 2 steps to the left puts us back at 3.
  movining 7 steps left also puts us back at 3, moving 12 steps
  left also puts us back at 3.
  
  So, the thing to note is that:
 ```
- z = x % y 
+x % y
 ```
  maps any number x (positive or negative) into the range:
 ```
- -y + 1 < z < y - 1
+ -y + 1 < x % y < y - 1
 ```
  and furthermore (and most importantly for the homework)
  This mapping cycles over and over.  
@@ -52,7 +52,7 @@ for i in (0 ..< 25) {
 tupleArray
 
 /*:
- Now observe the cycling between -4 and 0 when we are stepping to the left
+ Now observe the cycling between -4 and 0 when we are stepping from the left
  */
 tupleArray = []
 for i in (-24 ... 0 ) {
