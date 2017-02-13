@@ -1,86 +1,35 @@
-// For wrap around rules in Homework Assignment 2
-// Apply the modulus operator to any integer
-// Lets pick 5 as our modulus
-3 % 5
-8 % 5
-13 % 5
 
-//Note how all of those expressions equal -2
-// Now deal with negative numbers
--2 % 5
--7 % 5
--12 % 5
 
-// Now note what happens if we add the modulus back
-(-2 % 5) + 5
-(-7 % 5) + 5
-(-12 % 5) + 5
 
-// Again note that all 3 are equal
-// z = x % y maps any number x (positive or negative) into the range:
-// -y + 1 < z < y - 1
-// and further more (and most importantly for the homework)
-// This mapping cycles over and over:
 
-// cycles betwen 0 and 4
-var tupleArray: [(Int, Int)] = []
-for i in (0 ..< 25) {
-    tupleArray.append((i, i % 5))
-}
-tupleArray
 
-// cycles between -4 and 0
-tupleArray = []
-for i in (-24 ... 0) {
-    tupleArray.append((i, i % 5))
-}
-tupleArray
 
-// cyles between 0 and 4
-tupleArray = []
-for i in (-24 ... 0) {
-    tupleArray.append((i, (i % 5) + 5))
-}
-tupleArray
 
-// So the negative numbers cycle between -y+1 and 0
-// and the positive numbers cycle between 0 and y - 1
-// If we shift any negative numbers over to the right by y
-// This is EXACTLY equivalent to the "wrap-around" rules for 
-// Conway's GoL
+// Challenge 1
 
-// So.. for any x > 0
-// x % y = (x + y) % y
+func isLeap(_ year:Int) -> Bool { return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 }
 
-let array = [1, 2 , 3, 4, 5]
+let months = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
-func shiftPosition(of array: [Int], by amount: Int, from position: Int) -> Int {
-    //     produces between -count+1 and count-1       produces between 0 and count-1
-    return (((position + amount) % array.count)    +    array.count) % array.count
+func julianDate(year: Int, month: Int, day: Int) -> Int {
+//    guard year >= 1900 else { return -1 }
+//    guard (1 ... 12).contains(month) else { return -1 }
+//    guard (1 ... 31).contains(day) else { return -1 }
+    return ((1900 ..< year).reduce(0) { $0 + (isLeap($1) ? 366 : 365) })
+        + months[month - 1] + (isLeap(year) && month > 2 ? 1 : 0)
+        + day
 }
 
-shiftPosition(of: array, by: -1, from: 0)
-shiftPosition(of: array, by: -2, from: 0)
-shiftPosition(of: array, by: -3, from: 0)
-shiftPosition(of: array, by: -4, from: 0)
-shiftPosition(of: array, by: -5, from: 0)
-shiftPosition(of: array, by: -6, from: 0)
-// and so on
+julianDate(year: 1960, month:  9, day: 28)
+julianDate(year: 1900, month:  1, day:  1)
+julianDate(year: 1900, month: 12, day: 31)
+julianDate(year: 1901, month:  1, day:  1)
+julianDate(year: 1901, month:  1, day:  1) - julianDate(year: 1900, month: 1, day: 1)
+julianDate(year: 2001, month:  1, day:  1) - julianDate(year: 2000, month: 1, day: 1)
 
-shiftPosition(of: array, by:  1, from: array.count - 1)
-shiftPosition(of: array, by:  2, from: array.count - 1)
-shiftPosition(of: array, by:  3, from: array.count - 1)
-shiftPosition(of: array, by:  4, from: array.count - 1)
-shiftPosition(of: array, by:  5, from: array.count - 1)
-shiftPosition(of: array, by:  6, from: array.count - 1)
-// And so on..
-
-// You should understand this for the wrap around rules
-// What you are asked to do in the homework is EXACTLY equivalent to this
-// only you are doing it for rows and columns instead of just rows
-
-
-
+isLeap(1960)
+isLeap(1900)
+isLeap(2000)
 
 
 

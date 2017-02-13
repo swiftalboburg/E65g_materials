@@ -4,34 +4,39 @@
 
 
 
+//Challenge 2
 
-// Challenge 1
+typealias Position = (row: Int, col: Int)
 
-func isLeap(_ year:Int) -> Bool { return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 }
-
-let nonLeapMonths = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
-let leapMonths    = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335]
-
-func julianDate(year: Int, month: Int, day: Int) -> Int {
-    guard year >= 1900 else { return -1 }
-    guard (1 ... 12).contains(month) else { return -1 }
-    guard (1 ... 31).contains(day) else { return -1 }
-    return ((1900 ..< year).reduce(0) { $0 + (isLeap($1) ? 366 : 365) })
-        + (isLeap(year) ? leapMonths[month - 1] : nonLeapMonths[month - 1])
-        + day
+// Example of using the zip function on one row
+let zipped = zip( [Int](repeating: 0, count: 5), 0 ..< 5 )
+for z in zipped {
+    print("\(z)")
 }
 
-julianDate(year: 1960, month:  9, day: 28)
-julianDate(year: 1900, month:  1, day:  1)
-julianDate(year: 1900, month: 12, day: 31)
-julianDate(year: 1901, month:  1, day:  1)
-julianDate(year: 1901, month:  1, day:  1) - julianDate(year: 1900, month: 1, day: 1)
-julianDate(year: 2001, month:  1, day:  1) - julianDate(year: 2000, month: 1, day: 1)
+let toFlatten = [
+    [1, 2, 3, 4],
+    [5],
+    [6, 7, 8, 9]
+]
 
-isLeap(1960)
-isLeap(1900)
-isLeap(2000)
+let flattened = toFlatten.flatMap { return $0 }
+flattened
 
+let unflattenedPositions = (0 ..< 5)
+    .map { row in zip( [Int](repeating: row, count: 5), 0 ..< 5 ) }
+    .map { Array($0) }
+print(unflattenedPositions)
 
+print(unflattenedPositions.flatMap { $0 })
+
+// Now use the zip and flat map functions on ALL the rows in a grid
+func positions(rows: Int, cols: Int) -> [Position] {
+    return (0 ..< rows)
+        .map { row in zip( [Int](repeating: row, count: cols), 0 ..< cols ) }
+        .flatMap { $0 }
+}
+var gridPositions = positions(rows: 5, cols: 5)
+print(gridPositions)
 
 
