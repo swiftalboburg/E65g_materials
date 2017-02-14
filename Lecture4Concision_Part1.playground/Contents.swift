@@ -11,11 +11,13 @@ func isLeap(_ year:Int) -> Bool { return (year % 4 == 0 && year % 100 != 0) || y
 
 let months = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
+var sum = 0
+for yr in (1900 ..< 2017) {
+    sum += isLeap(yr) ? 366 : 365
+}
+
 func julianDate(year: Int, month: Int, day: Int) -> Int {
-//    guard year >= 1900 else { return -1 }
-//    guard (1 ... 12).contains(month) else { return -1 }
-//    guard (1 ... 31).contains(day) else { return -1 }
-    return ((1900 ..< year).reduce(0) { $0 + (isLeap($1) ? 366 : 365) })
+    return ((1900 ..< year).reduce(0) { return ($0 + (isLeap($1) ? 366 : 365)) })
         + months[month - 1] + (isLeap(year) && month > 2 ? 1 : 0)
         + day
 }
@@ -34,3 +36,8 @@ isLeap(2000)
 
 
 
+
+
+//    guard year >= 1900 else { return -1 }
+//    guard (1 ... 12).contains(month) else { return -1 }
+//    guard (1 ... 31).contains(day) else { return -1 }

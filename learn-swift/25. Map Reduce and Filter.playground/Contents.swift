@@ -1,15 +1,25 @@
 import Foundation
 
-
+/*:
+ Describable is a protocol that simply says the accompanying type can produce
+ a description of itself as a String
+ */
 protocol Describable {
     var description: String { get }
 }
 
+/*:
+ the following classes already have a var called description, so we can simply
+ tell Swift that they meet the protocol.
+ */
 extension String: Describable { }
 extension Int: Describable { }
 extension Dictionary: Describable { }
 extension Array: Describable { }
 
+/*:
+ We do the following to make conversion between String and Integer possible.
+ */
 protocol IntegerValuable {
     var integerValue: Int { get }
 }

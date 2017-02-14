@@ -22,6 +22,7 @@ let toFlatten = [
 
 let flattened = toFlatten.flatMap { return $0 }
 flattened
+print(flattened)
 
 let unflattenedPositions = (0 ..< 5)
     .map { row in zip( [Int](repeating: row, count: 5), 0 ..< 5 ) }
