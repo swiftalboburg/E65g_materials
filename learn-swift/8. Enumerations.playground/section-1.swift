@@ -23,8 +23,7 @@
 // Unlike their C counterparts, the members of the enumeration below are not integer values (0,
 // 1, 2, etc.) Instead, each member is a fully-fledged value in its own right.
 // In Swift 3, enums now have members in lowercase
-enum Planet
-{
+enum Planet {
 	case mercury
 	case venus
 	case earth
@@ -37,8 +36,7 @@ enum Planet
 
 // You can also combine members onto a single line if you prefer, or mix them up. This has no
 // effect on the enumeration itself.
-enum CompassPoint
-{
+enum CompassPoint {
 	case north, south
 	case east, west
 }
@@ -54,8 +52,7 @@ directionToHead = .east
 //
 // Remember that switches have to be exhaustive. But in this case, Swift knows that the CompassType
 // enumeration only has 4 values, so as long as we cover all 4, we don't need the default case.
-switch directionToHead
-{
+switch directionToHead {
 	case .north:
 		"North"
 	case .south:
@@ -73,8 +70,7 @@ switch directionToHead
 //
 // The following enumeration will store not only the type of a barcode (UPCA, QR Code) but also
 // the data of the barcode (this is likely a foreign concept for most.)
-enum Barcode
-{
+enum Barcode {
 	case UPCA(Int, Int, Int) // UPCA with associated value type (Int, Int, Int)
 	case QRCode(String)      // QRCode with associated value type of String
 }
@@ -86,8 +82,7 @@ var productBarcode = Barcode.UPCA(0, 8590951226, 3)
 productBarcode = .QRCode("ABCDEFGHIJKLMNOP")
 
 // We use a switch to check the value and extract the associated value:
-switch productBarcode
-{
+switch productBarcode {
 	case .UPCA(let numberSystem, let identifier, let check):
 		"UPCA: \(numberSystem), \(identifier), \(check)"
 	case .QRCode(let productCode):
@@ -96,8 +91,7 @@ switch productBarcode
 
 // Using the switch statement simplification (see the Switch statement section) to reduce the
 // number of occurrances of the 'let' introducer:
-switch productBarcode
-{
+switch productBarcode {
 	// All constants
 	case let .UPCA(numberSystem, identifier, check):
 		"UPCA: \(numberSystem), \(identifier), \(check)"
@@ -112,8 +106,7 @@ switch productBarcode
 //
 // We can assign a type to an enumeration. If we use Int as the type, then we are effectively
 // making an enumeration that functions like its C counterpart:
-enum StatusCode: Int
-{
+enum StatusCode: Int {
 	case Error = -1
 	case Success = 9
 	case OtherResult = 1
@@ -124,8 +117,7 @@ enum StatusCode: Int
 StatusCode.OtherResult.rawValue
 
 // We can give enumerations many types. Here's one of type Character:
-enum ASCIIControlCharacter: Character
-{
+enum ASCIIControlCharacter: Character {
 	case Tab = "\t"
 	case LineFeed = "\n"
 	case CarriageReturn = "\r"
@@ -137,8 +129,7 @@ enum ASCIIControlCharacter: Character
 }
 
 // Alternatively, we could also use Strings
-enum FamilyPet: String
-{
+enum FamilyPet: String {
 	case Cat = "Cat"
 	case Dog = "Dog"
 	case Ferret = "Ferret"

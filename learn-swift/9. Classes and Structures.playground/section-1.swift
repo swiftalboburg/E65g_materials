@@ -24,8 +24,7 @@
 // Our structure must have all of its properties initialized, either with default values or through
 // initialization (described later.) For now, we'll just ensure they're all initialized with
 // default values.
-struct Resolution
-{
+struct Resolution {
 	var width = 1280
 	var height = 1024
 }
@@ -35,8 +34,7 @@ struct Resolution
 //
 // Also, note that the final member, the 'name' property, does not need to be initialized because
 // optionals are initalized to nil by default.
-class VideoMode
-{
+class VideoMode {
 	var resolution = Resolution()
 	var interlaced = false
 	var frameRate = 0.0

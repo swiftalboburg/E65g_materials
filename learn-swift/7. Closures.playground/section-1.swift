@@ -103,7 +103,7 @@ reversed = names.sorted()
 // If you want to just sort a mutable copy of an array (in place) you can use the sort() method
 var mutableCopyOfNames = names
 
-mutableCopyOfNames.sorted(by: >)
+mutableCopyOfNames.sort(by: >)
 
 mutableCopyOfNames
 
@@ -162,13 +162,11 @@ returnValue {6}
 // that "captured" context.
 //
 // Here's an example that should help clear this up:
-func makeIncrementor(forIncrement amount: Int) -> () -> Int
-{
+func makeIncrementor(forIncrement amount: Int) -> () -> Int {
 	var runningTotal = 0
 	
 	// runningTotal and amount are 'captured' for the nested function incrementor()
-	func incrementor() -> Int
-	{
+	func incrementor() -> Int {
 		runningTotal += amount
 		return runningTotal
 	}
