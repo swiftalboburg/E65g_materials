@@ -14,7 +14,10 @@ import UIKit
     var xColor = UIColor.black
     var xProportion = CGFloat(1.0)
     var widthProportion = CGFloat(0.05)
-
+    
+    // Updated since class
+    var grid = [[Bool]](repeating: [Bool](repeating: false, count: 3), count: 3)
+    
     override func draw(_ rect: CGRect) {
         let size = CGSize(
             width: rect.size.width / 3.0,
@@ -24,14 +27,14 @@ import UIKit
         (0 ..< 3).forEach { i in
             (0 ..< 3).forEach { j in
                 let origin = CGPoint(
-                    x: base.x + (CGFloat(i) * size.width),
-                    y: base.y + (CGFloat(j) * size.height)
+                    x: base.x + (CGFloat(j) * size.width),
+                    y: base.y + (CGFloat(i) * size.height)
                 )
                 let subRect = CGRect(
                     origin: origin,
                     size: size
                 )
-                if arc4random_uniform(2) == 1 {
+                if grid[i][j] {
                     let path = UIBezierPath(ovalIn: subRect)
                     fillColor.setFill()
                     path.fill()
@@ -71,15 +74,42 @@ import UIKit
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //lastTouchedPosition = process(touches: touches)
+        lastTouchedPosition = process(touches: touches)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //lastTouchedPosition = process(touches: touches)
+        lastTouchedPosition = process(touches: touches)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //lastTouchedPosition = nil
+        lastTouchedPosition = nil
+    }
+    
+    // Updated since class
+    typealias Position = (row: Int, col: Int)
+    var lastTouchedPosition: Position?
+
+    func process(touches: Set<UITouch>) -> Position? {
+        guard touches.count == 1 else { return nil }
+        let pos = convert(touch: touches.first!)
+        guard lastTouchedPosition?.row != pos.row
+            || lastTouchedPosition?.col != pos.col
+            else { return pos }
+        
+        grid[pos.row][pos.col] = grid[pos.row][pos.col] ? false : true
+        setNeedsDisplay()
+        return pos
+    }
+    
+    func convert(touch: UITouch) -> Position {
+        let touchY = touch.location(in: self).y
+        let gridHeight = frame.size.height
+        let row = touchY / gridHeight * CGFloat(3)
+        let touchX = touch.location(in: self).x
+        let gridWidth = frame.size.width
+        let col = touchX / gridWidth * CGFloat(3)
+        let position = (row: Int(row), col: Int(col))
+        return position
     }
 }
 
