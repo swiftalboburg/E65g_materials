@@ -11,13 +11,9 @@ import UIKit
 @IBDesignable class XView: UIView {
 
     @IBInspectable var fillColor = UIColor.darkGray
-    @IBInspectable var gridSize: Int = 3 {
-        didSet {
-            grid = Grid(GridSize(rows:gridSize, cols:gridSize))
-        }
-    }
+    @IBInspectable var gridSize: Int = 3 
     // Updated since class
-    var grid: GridProtocol = Grid(GridSize(rows:3, cols:3))
+    var grid: GridViewDataSource!
     
     var xColor = UIColor.black
     var xProportion = CGFloat(1.0)

@@ -13,6 +13,8 @@
 		FB475A051E80B16000D2EAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB475A041E80B16000D2EAD3 /* Assets.xcassets */; };
 		FB475A081E80B16000D2EAD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB475A061E80B16000D2EAD3 /* LaunchScreen.storyboard */; };
 		FB475A121E80B19A00D2EAD3 /* XView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB475A111E80B19A00D2EAD3 /* XView.swift */; };
+		FB475A321E85409600D2EAD3 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB475A311E85409600D2EAD3 /* Grid.swift */; };
+		FB475A3A1E895E2F00D2EAD3 /* GridProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB475A391E895E2F00D2EAD3 /* GridProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FB475A071E80B16000D2EAD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB475A091E80B16000D2EAD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB475A111E80B19A00D2EAD3 /* XView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XView.swift; sourceTree = "<group>"; };
+		FB475A311E85409600D2EAD3 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		FB475A391E895E2F00D2EAD3 /* GridProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				FB475A111E80B19A00D2EAD3 /* XView.swift */,
+				FB475A391E895E2F00D2EAD3 /* GridProtocol.swift */,
+				FB475A311E85409600D2EAD3 /* Grid.swift */,
 				FB4759FD1E80B16000D2EAD3 /* AppDelegate.swift */,
 				FB4759FF1E80B16000D2EAD3 /* ViewController.swift */,
 				FB475A011E80B16000D2EAD3 /* Main.storyboard */,
@@ -143,6 +149,8 @@
 				FB475A121E80B19A00D2EAD3 /* XView.swift in Sources */,
 				FB475A001E80B16000D2EAD3 /* ViewController.swift in Sources */,
 				FB4759FE1E80B16000D2EAD3 /* AppDelegate.swift in Sources */,
+				FB475A3A1E895E2F00D2EAD3 /* GridProtocol.swift in Sources */,
+				FB475A321E85409600D2EAD3 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +314,7 @@
 				FB475A0E1E80B16000D2EAD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

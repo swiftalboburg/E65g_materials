@@ -29,6 +29,11 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xOz-5L-pEM" secondAttribute="height" multiplier="1:1" id="IjU-eE-msf"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gridSize">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJh-VK-Mv8">
                                 <rect key="frame" x="67" y="151" width="46" height="30"/>
@@ -53,6 +58,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gridView" destination="xOz-5L-pEM" id="8Iw-cz-to6"/>
                         <outlet property="myButton" destination="XJh-VK-Mv8" id="XZl-9G-mSi"/>
                     </connections>
                 </viewController>
