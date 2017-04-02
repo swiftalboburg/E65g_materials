@@ -35,6 +35,7 @@ public protocol GridViewDataSource {
 public protocol GridProtocol: CustomStringConvertible {
     init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState)
     var size: GridSize { get }
+    subscript (row: Int, col: Int) -> CellState { get set }
     func next() -> Self
 }
 

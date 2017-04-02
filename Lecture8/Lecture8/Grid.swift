@@ -30,7 +30,12 @@ public struct Grid: GridProtocol, GridViewDataSource {
     }
     
     public init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState = { _ in .empty }) {
-        _cells = [[CellState]](repeatElement( [CellState](repeatElement(.empty, count: size.rows)), count: size.cols))
+        _cells = [[CellState]](
+            repeatElement(
+                [CellState]( repeatElement(.empty, count: size.rows)),
+                count: size.cols
+            )
+        )
         self.size = size
         lazyPositions(self.size).forEach { self[$0.row, $0.col] = cellInitializer($0) }
     }

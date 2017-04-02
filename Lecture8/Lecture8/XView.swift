@@ -13,14 +13,18 @@ import UIKit
     @IBInspectable var fillColor = UIColor.darkGray
     @IBInspectable var gridSize: Int = 3 
     // Updated since class
-    var grid: GridViewDataSource!
+    var grid: GridViewDataSource?
     
     var xColor = UIColor.black
     var xProportion = CGFloat(1.0)
     var widthProportion = CGFloat(0.05)
     
-    
     override func draw(_ rect: CGRect) {
+        drawOvals(rect)
+        drawLines(rect)
+    }
+    
+    func drawOvals(_ rect: CGRect) {
         let size = CGSize(
             width: rect.size.width / CGFloat(gridSize),
             height: rect.size.height / CGFloat(gridSize)
@@ -28,22 +32,31 @@ import UIKit
         let base = rect.origin
         (0 ..< gridSize).forEach { i in
             (0 ..< gridSize).forEach { j in
-                let origin = CGPoint(
-                    x: base.x + (CGFloat(j) * size.width),
-                    y: base.y + (CGFloat(i) * size.height)
+                // Inset the oval 2 points from the left and top edges
+                let ovalOrigin = CGPoint(
+                    x: base.x + (CGFloat(j) * size.width) + 2.0,
+                    y: base.y + (CGFloat(i) * size.height + 2.0)
                 )
-                let subRect = CGRect(
-                    origin: origin,
-                    size: size
+                // Make the oval draw 2 points short of the right and bottom edges
+                let ovalSize = CGSize(
+                    width: size.width - 4.0,
+                    height: size.height - 4.0
                 )
-                if grid[i,j].isAlive {
-                    let path = UIBezierPath(ovalIn: subRect)
-                    fillColor.setFill()
-                    path.fill()
+                let ovalRect = CGRect( origin: ovalOrigin, size: ovalSize )
+                if let grid = grid, grid[i,j].isAlive {
+                    drawOval(ovalRect)
                 }
             }
         }
-
+    }
+    
+    func drawOval(_ ovalRect: CGRect) {
+        let path = UIBezierPath(ovalIn: ovalRect)
+        fillColor.setFill()
+        path.fill()
+    }
+    
+    func drawLines(_ rect: CGRect) {
         //create the path
         (0 ..< (gridSize + 1)).forEach {
             drawLine(
@@ -57,6 +70,7 @@ import UIKit
             )
         }
     }
+    
     func drawLine(start:CGPoint, end: CGPoint) {
         let path = UIBezierPath()
         
@@ -100,8 +114,10 @@ import UIKit
             else { return pos }
         //****************************************
         
-        grid[pos.row, pos.col] = grid[pos.row, pos.col].isAlive ? .empty : .alive
-        setNeedsDisplay()
+        if grid != nil {
+            grid![pos.row, pos.col] = grid![pos.row, pos.col].isAlive ? .empty : .alive
+            setNeedsDisplay()
+        }
         return pos
     }
     
