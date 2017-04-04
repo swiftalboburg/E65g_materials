@@ -29,6 +29,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @IBAction func otherStop(_ sender: Any) {
+    }
 
     @IBAction func next(_ sender: Any) {
         grid = gridView.grid as! Grid
@@ -86,8 +88,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: TextField Event Handling
-    @IBAction func editingBegan(_ sender: UITextField) { print("began") }
-    @IBAction func editingChanged(_ sender: UITextField) { print("changed") }
+    @IBAction func editingBegan(_ sender: UITextField) {
+        print("began")
+    }
+    
+    @IBAction func editingChanged(_ sender: UITextField) {
+        print("changed")
+    }
+    
     @IBAction func editingEndedOnExit(_ sender: UITextField) {
         print("ended on exit")
         guard let text = sender.text else { return }
@@ -98,11 +106,17 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             return
         }
         gridView.gridSize = val
+        sizeStepper.value = Double(val)
         grid = Grid(GridSize(rows: val, cols: val))
         gridView.setNeedsDisplay()
     }
-    @IBAction func editingEnded(_ sender: UITextField) { print("ended") }
-    @IBAction func didTriggerAction(_ sender: UITextField) { print("triggered") }
+    @IBAction func editingEnded(_ sender: UITextField) {
+        print("ended")
+    }
+    
+    @IBAction func didTriggerAction(_ sender: UITextField) {
+        print("triggered")
+    }
     
     //MARK: AlertController Handling
     func showErrorAlert(withMessage msg:String, action: (() -> Void)? ) {
