@@ -130,7 +130,7 @@ public extension Grid {
 
 
 protocol EngineDelegate {
-    func engineDidUpdate(engine: Engine)
+    func engineDidUpdate(withGrid: GridProtocol)
 }
 
 class Engine {
@@ -166,12 +166,12 @@ class Engine {
         let newGrid = grid.next()
         grid = newGrid
 //         updateClosure?(self.grid)
-//        delegate?.engineDidUpdate(engine: self)
-          let nc = NotificationCenter.default
-          let name = Notification.Name(rawValue: "EngineUpdate")
-          let n = Notification(name: name,
-                               object: nil,
-                               userInfo: ["engine" : self])
-                               nc.post(n)
+        delegate?.engineDidUpdate(withGrid: grid)
+//          let nc = NotificationCenter.default
+//          let name = Notification.Name(rawValue: "EngineUpdate")
+//          let n = Notification(name: name,
+//                               object: nil,
+//                               userInfo: ["engine" : self])
+//                               nc.post(n)
     }
 }

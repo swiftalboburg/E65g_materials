@@ -38,7 +38,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
 
     }
     
-    func engineDidUpdate(engine: Engine) {
+    func engineDidUpdate(withGrid: GridProtocol) {
         self.gridView.setNeedsDisplay()
     }
     
@@ -50,6 +50,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     @IBAction func otherStop(_ sender: Any) {
     }
     

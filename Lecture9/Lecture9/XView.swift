@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol GridViewDataSource {
+    subscript (row: Int, col: Int) -> CellState { get set }
+}
+
 @IBDesignable class XView: UIView {
 
     @IBInspectable var fillColor = UIColor.darkGray
@@ -106,6 +110,12 @@ import UIKit
 
     func process(touches: Set<UITouch>) -> GridPosition? {
         guard touches.count == 1 else { return nil }
+        
+        let touchY = touches.first!.location(in: self).y
+        let touchX = touches.first!.location(in: self).x
+        guard touchX > frame.origin.x && touchX < (frame.origin.x + frame.size.width) else { return nil }
+        guard touchY > frame.origin.y && touchY < (frame.origin.y + frame.size.height) else { return nil }
+
         let pos = convert(touch: touches.first!)
         
         //************* IMPORTANT ****************

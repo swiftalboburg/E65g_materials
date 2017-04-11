@@ -28,10 +28,6 @@ public enum CellState {
     }
 }
 
-public protocol GridViewDataSource {
-    subscript (row: Int, col: Int) -> CellState { get set }    
-}
-
 public protocol GridProtocol: CustomStringConvertible {
     init(_ size: GridSize, cellInitializer: (GridPosition) -> CellState)
     var size: GridSize { get }
