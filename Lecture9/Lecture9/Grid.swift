@@ -133,9 +133,17 @@ protocol EngineDelegate {
     func engineDidUpdate(withGrid: GridProtocol)
 }
 
-class Engine {
+protocol EngineProtocol {
+    var timerInterval: Double { get set }
+    var grid: Grid { get set }
+    var delegate: EngineDelegate? { get set }
+    var updateClosure: ((Grid) -> Void)? { get set }
+    func step() -> GridProtocol
+}
+
+class Engine: EngineProtocol {
     static var engine: Engine = Engine(rows: 10, cols: 10)
-    
+
     var grid: Grid
     var delegate: EngineDelegate?
     
@@ -148,7 +156,7 @@ class Engine {
                     withTimeInterval: timerInterval,
                     repeats: true
                 ) { (t: Timer) in
-                    self.step()
+                    _ = self.step()
                 }
             }
             else {
@@ -162,7 +170,7 @@ class Engine {
         self.grid = Grid(GridSize(rows: rows, cols: cols))
     }
     
-    func step() {
+    func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
 //         updateClosure?(self.grid)
@@ -173,5 +181,6 @@ class Engine {
 //                               object: nil,
 //                               userInfo: ["engine" : self])
 //                               nc.post(n)
+        return grid
     }
 }

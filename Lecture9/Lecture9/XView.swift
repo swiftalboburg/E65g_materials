@@ -17,7 +17,7 @@ public protocol GridViewDataSource {
     @IBInspectable var fillColor = UIColor.darkGray
     @IBInspectable var gridSize: Int = 3 
     // Updated since class
-    var grid: GridViewDataSource?
+    var gridDataSource: GridViewDataSource?
     
     var xColor = UIColor.black
     var xProportion = CGFloat(1.0)
@@ -47,7 +47,7 @@ public protocol GridViewDataSource {
                     height: size.height - 4.0
                 )
                 let ovalRect = CGRect( origin: ovalOrigin, size: ovalSize )
-                if let grid = grid, grid[i,j].isAlive {
+                if let grid = gridDataSource, grid[i,j].isAlive {
                     drawOval(ovalRect)
                 }
             }
@@ -98,6 +98,11 @@ public protocol GridViewDataSource {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touchY = touches.first!.location(in: self).y
+        let touchX = touches.first!.location(in: self).x
+        guard touchX > frame.origin.x && touchX < (frame.origin.x + frame.size.width) else { return }
+        guard touchY > frame.origin.y && touchY < (frame.origin.y + frame.size.height) else { return }
+        
         lastTouchedPosition = process(touches: touches)
     }
     
@@ -110,12 +115,6 @@ public protocol GridViewDataSource {
 
     func process(touches: Set<UITouch>) -> GridPosition? {
         guard touches.count == 1 else { return nil }
-        
-        let touchY = touches.first!.location(in: self).y
-        let touchX = touches.first!.location(in: self).x
-        guard touchX > frame.origin.x && touchX < (frame.origin.x + frame.size.width) else { return nil }
-        guard touchY > frame.origin.y && touchY < (frame.origin.y + frame.size.height) else { return nil }
-
         let pos = convert(touch: touches.first!)
         
         //************* IMPORTANT ****************
@@ -124,8 +123,8 @@ public protocol GridViewDataSource {
             else { return pos }
         //****************************************
         
-        if grid != nil {
-            grid![pos.row, pos.col] = grid![pos.row, pos.col].isAlive ? .empty : .alive
+        if gridDataSource != nil {
+            gridDataSource![pos.row, pos.col] = gridDataSource![pos.row, pos.col].isAlive ? .empty : .alive
             setNeedsDisplay()
         }
         return pos
