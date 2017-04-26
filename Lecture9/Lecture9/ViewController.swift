@@ -13,7 +13,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     @IBOutlet weak var gridView: XView!
     @IBOutlet weak var sizeStepper: UIStepper!
     
-    var engine: Engine!
+    var engine: EngineProtocol!
     var timer: Timer?
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
         engine.updateClosure = { (grid) in
             self.gridView.setNeedsDisplay()
         }
-        gridView.grid = self
+        gridView.gridDataSource = self
         sizeStepper.value = Double(engine.grid.size.rows)
         
         let nc = NotificationCenter.default
@@ -38,7 +38,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
 
     }
     
-    func engineDidUpdate(engine: Engine) {
+    func engineDidUpdate(withGrid: GridProtocol) {
         self.gridView.setNeedsDisplay()
     }
     
@@ -50,6 +50,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     @IBAction func otherStop(_ sender: Any) {
     }
     
@@ -68,7 +69,8 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
     //MARK: Stepper Event Handling
     @IBAction func step(_ sender: UIStepper) {
-        engine.step()
+        engine.grid = Grid(GridSize(rows: Int(sender.value), cols: Int(sender.value)))
+        gridView.gridSize = Int(sender.value)
         gridView.setNeedsDisplay()
     }
         
