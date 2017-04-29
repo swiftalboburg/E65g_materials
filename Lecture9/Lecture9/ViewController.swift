@@ -19,7 +19,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let size = gridView.gridSize
-        engine = Engine(rows: size, cols: size)
+        engine = Engine(rows: size, cols: size + 5)
         engine.delegate = self
         engine.updateClosure = { (grid) in
             self.gridView.setNeedsDisplay()
@@ -69,7 +69,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
     //MARK: Stepper Event Handling
     @IBAction func step(_ sender: UIStepper) {
-        engine.grid = Grid(GridSize(rows: Int(sender.value), cols: Int(sender.value)))
+        engine.grid = Grid(GridSize(rows: Int(sender.value), cols: Int(sender.value) + 5))
         gridView.gridSize = Int(sender.value)
         gridView.setNeedsDisplay()
     }
