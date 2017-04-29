@@ -95,6 +95,13 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         navigationController?.isNavigationBarHidden = true
     }
     
+    @IBAction func addRowToTop(_ sender: UIButton) {
+        data[0] = ["New Fruity Thing"] + data[0]
+        self.tableView.reloadData()
+    }
+    
+    //MARK: TableView DataSource and Delegate
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
@@ -139,6 +146,5 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             }
         }
     }
-
 }
 
