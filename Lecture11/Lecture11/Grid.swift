@@ -128,6 +128,24 @@ public extension Grid {
     }
 }
 
+var configuration: [String:[[Int]]] = [:]
+
+public extension Grid {
+    func setConfiguration() {
+        lazyPositions(self.size).forEach {
+            switch self[$0.row, $0.col] {
+            case .born:
+                configuration["born"] = (configuration["born"] ?? []) + [[$0.row, $0.col]]
+            case .died:
+                configuration["died"] = (configuration["died"] ?? []) + [[$0.row, $0.col]]
+            case .alive:
+                configuration["alive"] = (configuration["alive"] ?? []) + [[$0.row, $0.col]]
+            case .empty:
+                ()
+            }
+        }
+    }
+
 
 protocol EngineDelegate {
     func engineDidUpdate(withGrid: GridProtocol)
@@ -173,14 +191,14 @@ class Engine: EngineProtocol {
     func step() -> GridProtocol {
         let newGrid = grid.next()
         grid = newGrid
-//         updateClosure?(self.grid)
+        //         updateClosure?(self.grid)
         delegate?.engineDidUpdate(withGrid: grid)
-//          let nc = NotificationCenter.default
-//          let name = Notification.Name(rawValue: "EngineUpdate")
-//          let n = Notification(name: name,
-//                               object: nil,
-//                               userInfo: ["engine" : self])
-//                               nc.post(n)
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["engine" : self])
+        nc.post(n)
         return grid
     }
 }

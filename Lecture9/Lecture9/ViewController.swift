@@ -18,8 +18,8 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size = gridView.gridSize
-        engine = Engine(rows: size, cols: size + 5)
+        engine = Engine.engine
+        gridView.gridSize = engine.grid.size.rows
         engine.delegate = self
         engine.updateClosure = { (grid) in
             self.gridView.setNeedsDisplay()
@@ -55,7 +55,7 @@ class ViewController: UIViewController, GridViewDataSource, EngineDelegate {
     }
     
     @IBAction func next(_ sender: Any) {
-        engine.grid = engine.grid.next()
+        engine.step()
         gridView.setNeedsDisplay()
     }
     

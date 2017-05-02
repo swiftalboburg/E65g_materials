@@ -30,12 +30,12 @@ public protocol GridViewDataSource {
     
     func drawOvals(_ rect: CGRect) {
         let size = CGSize(
-            width: rect.size.width / CGFloat(gridSize + 5),
+            width: rect.size.width / CGFloat(gridSize),
             height: rect.size.height / CGFloat(gridSize)
         )
         let base = rect.origin
         (0 ..< gridSize).forEach { i in
-            (0 ..< gridSize + 5).forEach { j in
+            (0 ..< gridSize).forEach { j in
                 // Inset the oval 2 points from the left and top edges
                 let ovalOrigin = CGPoint(
                     x: base.x + (CGFloat(j) * size.width) + 2.0,
@@ -62,10 +62,10 @@ public protocol GridViewDataSource {
     
     func drawLines(_ rect: CGRect) {
         //create the path
-        (0 ..< (gridSize + 6)).forEach {
+        (0 ..< (gridSize + 1)).forEach {
             drawLine(
-                start: CGPoint(x: CGFloat($0)/CGFloat(gridSize + 5) * rect.size.width, y: 0.0),
-                end:   CGPoint(x: CGFloat($0)/CGFloat(gridSize + 5) * rect.size.width, y: rect.size.height)
+                start: CGPoint(x: CGFloat($0)/CGFloat(gridSize) * rect.size.width, y: 0.0),
+                end:   CGPoint(x: CGFloat($0)/CGFloat(gridSize) * rect.size.width, y: rect.size.height)
             )
         }
         (0 ..< (gridSize + 1)).forEach {
@@ -138,7 +138,7 @@ public protocol GridViewDataSource {
         
         let touchX = touch.location(in: self).x
         let gridWidth = frame.size.width
-        let col = touchX / gridWidth * CGFloat(gridSize + 5)
+        let col = touchX / gridWidth * CGFloat(gridSize)
         
         return GridPosition(row: Int(row), col: Int(col))
     }
