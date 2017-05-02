@@ -174,13 +174,13 @@ class Engine: EngineProtocol {
         let newGrid = grid.next()
         grid = newGrid
 //         updateClosure?(self.grid)
-        delegate?.engineDidUpdate(withGrid: grid)
-//          let nc = NotificationCenter.default
-//          let name = Notification.Name(rawValue: "EngineUpdate")
-//          let n = Notification(name: name,
-//                               object: nil,
-//                               userInfo: ["engine" : self])
-//                               nc.post(n)
+        //        delegate?.engineDidUpdate(withGrid: grid)
+          let nc = NotificationCenter.default
+          let name = Notification.Name(rawValue: "EngineUpdate")
+          let n = Notification(name: name,
+                               object: nil,
+                               userInfo: ["engine" : self])
+                               nc.post(n)
         return grid
     }
 }
