@@ -28,6 +28,7 @@
 		FBB006021E931C6F0004D111 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		FBB006031E931C6F0004D111 /* GridProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridProtocol.swift; sourceTree = "<group>"; };
 		FBB006041E931C6F0004D111 /* XView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XView.swift; sourceTree = "<group>"; };
+		FBC541841EB8C66B00D82B6F /* GridPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GridPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 		FBB005E41E931C3B0004D111 = {
 			isa = PBXGroup;
 			children = (
+				FBC541841EB8C66B00D82B6F /* GridPlayground.playground */,
 				FBB005EF1E931C3C0004D111 /* Lecture9 */,
 				FBB005EE1E931C3C0004D111 /* Products */,
 			);
@@ -316,6 +318,7 @@
 				FBB006011E931C3C0004D111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
