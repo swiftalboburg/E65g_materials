@@ -145,7 +145,7 @@ public extension Grid {
             }
         }
     }
-
+}
 
 protocol EngineDelegate {
     func engineDidUpdate(withGrid: GridProtocol)
