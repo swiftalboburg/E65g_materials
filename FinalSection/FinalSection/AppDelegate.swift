@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Lecture11
+//  FinalSection
 //
-//  Created by Van Simmons on 4/17/17.
+//  Created by Van Simmons on 5/6/17.
 //  Copyright © 2017 Harvard University. All rights reserved.
 //
 
@@ -12,16 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let configuration = [
-        "born": [[0,0], [0,1]],
-        "alive": [[1,0], [1,1]],
-        "died": [[2,0], [2,1]]
-        ]
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let defaults = UserDefaults.standard
-        defaults.set(configuration, forKey: "simulationConfiguration")
-        _ = defaults.object(forKey: "simulationConfiguration")
+        // Override point for customization after application launch.
         return true
     }
 
